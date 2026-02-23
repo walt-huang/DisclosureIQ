@@ -12,11 +12,15 @@ runButton = "Project"
 [[workflows.workflow]]
 name = "Run"
 mode = "sequential"
-author = 55118064
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "bash start.sh"
+args = "bash regscreen-ai/start.sh"
+waitForPort = 5000
 
 [[workflows.workflow]]
 name = "Project"
@@ -25,20 +29,12 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Backend API"
-
-[[workflows.workflow]]
-name = "Backend API"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd regscreen-ai/backend && uvicorn main:app --host 0.0.0.0 --port 8000"
-waitForPort = 8000
-
-[workflows.workflow.metadata]
-outputType = "console"
+args = "Run"
 
 [[ports]]
 localPort = 8000
 externalPort = 8000
+
+[[ports]]
+localPort = 5000
+externalPort = 80
