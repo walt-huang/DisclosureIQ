@@ -1,8 +1,8 @@
-# RegScreen AI
+# Disclosure-IQ
 
 ## Overview
 
-RegScreen AI is a Canadian capital markets compliance review platform that uses AI to analyze regulatory filings (primarily offering memorandums under NI 45-106). Users upload PDF documents, and the system extracts text, chunks it, and runs AI-powered compliance analysis to check for completeness, risk factors, and red flags.
+Disclosure-IQ is a Canadian capital markets compliance review platform that uses AI to analyze regulatory filings (primarily offering memorandums under NI 45-106). Users upload PDF documents, and the system extracts text, chunks it, and runs AI-powered compliance analysis to check for completeness, risk factors, and red flags.
 
 The project has a split architecture: a Python/FastAPI backend for PDF processing and AI analysis, and a React/Vite frontend for the user interface. It supports a mock/demo mode for running without API keys and can connect to OpenAI or Anthropic for live AI analysis.
 

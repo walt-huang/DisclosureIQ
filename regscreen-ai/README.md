@@ -1,4 +1,4 @@
-# 🍁 RegScreen AI — Canadian Capital Markets Compliance Platform
+# 🍁 Disclosure-IQ — Canadian Capital Markets Compliance Platform
 
 AI-assisted compliance review platform for Canadian capital markets filings.
 Built for the exempt market (NI 45-106), extensible to all CSA document types.

@@ -108,7 +108,7 @@ export default function App() {
       <main className="main-content">
         <header className="top-bar">
           <div className="top-bar-left">
-            <span className="wordmark">RegScreen</span>
+            <span className="wordmark">Disclosure-IQ</span>
             <span className="wordmark-ai">AI</span>
           </div>
           <div className="top-bar-right">

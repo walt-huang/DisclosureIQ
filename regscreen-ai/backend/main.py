@@ -1,5 +1,5 @@
 """
-RegScreen AI — FastAPI Backend
+Disclosure-IQ — FastAPI Backend
 ────────────────────────────────
 Handles PDF upload, text extraction, chunking, and AI-powered compliance analysis.
 Swap MOCK_MODE = True → False and add your OPENAI_API_KEY or ANTHROPIC_API_KEY to run live.
@@ -23,7 +23,7 @@ except ImportError:
     PDF_AVAILABLE = False
     print("⚠️  pdfplumber not installed. Using text extraction fallback.")
 
-app = FastAPI(title="RegScreen AI", version="1.0.0")
+app = FastAPI(title="Disclosure-IQ", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,

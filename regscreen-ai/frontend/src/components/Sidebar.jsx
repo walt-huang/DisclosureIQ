@@ -2,9 +2,9 @@ export default function Sidebar({ registry, activeDocType, onSelect }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
-        <div className="logo-mark">RS</div>
+        <div className="logo-mark">IQ</div>
         <div className="logo-text">
-          <span className="logo-title">RegScreen</span>
+          <span className="logo-title">Disclosure-IQ</span>
           <span className="logo-sub">Capital Markets AI</span>
         </div>
       </div>

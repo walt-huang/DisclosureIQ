@@ -16,7 +16,7 @@ export default function SignOffSummary({ session, onNewReview }) {
         <div className="signoff-header">
           <div className="signoff-stamp">REVIEWED</div>
           <div className="signoff-title">Compliance Review Sign-Off</div>
-          <div className="signoff-sub">RegScreen AI · Canadian Capital Markets Compliance Platform</div>
+          <div className="signoff-sub">Disclosure-IQ · Canadian Capital Markets Compliance Platform</div>
         </div>
 
         <div className="signoff-meta-grid">
@@ -116,7 +116,7 @@ export default function SignOffSummary({ session, onNewReview }) {
         </div>
 
         <div className="signoff-disclaimer">
-          This review was generated with AI-assisted analysis (RegScreen AI) and confirmed by a human reviewer. 
+          This review was generated with AI-assisted analysis (Disclosure-IQ) and confirmed by a human reviewer. 
           It does not constitute legal advice or a qualified opinion under applicable securities legislation. 
           All flagged items should be reviewed with qualified legal counsel before filing.
         </div>
