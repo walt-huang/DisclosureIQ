@@ -49,12 +49,10 @@ CHUNK_OVERLAP = 300    # overlap between chunks
 
 def extract_text_from_pdf(file_bytes: bytes) -> str:
     """Extract text from PDF bytes using pdfplumber."""
-    if not PDF_AVAILABLE:
-        return "[PDF extraction unavailable — pdfplumber not installed]"
-    
-    import io
-    text_parts = []
     try:
+        import pdfplumber
+        import io
+        text_parts = []
         with pdfplumber.open(io.BytesIO(file_bytes)) as pdf:
             for page in pdf.pages:
                 page_text = page.extract_text()
@@ -201,7 +199,7 @@ Return ONLY a valid JSON object. No other text."""
 # AI CALLER
 # ─────────────────────────────────────────────────────────────────────────────
 
-def call_ai(prompt: str) -> str:
+def call_ai(prompt: str) -> Optional[str]:
     """Call the configured AI provider. Falls back to mock if no key set."""
     if MOCK_MODE or (not OPENAI_API_KEY and not ANTHROPIC_API_KEY):
         return None  # Signal to use mock
@@ -214,14 +212,18 @@ def call_ai(prompt: str) -> str:
 
 
 def call_anthropic(prompt: str) -> str:
-    import anthropic
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    message = client.messages.create(
-        model="claude-opus-4-6",
-        max_tokens=4096,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return message.content[0].text
+    try:
+        import anthropic
+        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        message = client.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=4096,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return message.content[0].text
+    except ImportError:
+        print("⚠️ anthropic not installed. Falling back to mock.")
+        return ""
 
 
 def call_openai(prompt: str) -> str:
@@ -233,7 +235,7 @@ def call_openai(prompt: str) -> str:
         response_format={"type": "json_object"},
         max_tokens=4096,
     )
-    return response.choices[0].message.content
+    return response.choices[0].message.content or ""
 
 
 def parse_json_response(raw: str, fallback: list | dict) -> list | dict:
