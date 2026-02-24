@@ -311,6 +311,11 @@ def get_mock_summary():
 # ROUTES
 # ─────────────────────────────────────────────────────────────────────────────
 
+@app.get("/")
+def root():
+    return {"message": "Disclosure-IQ API is running"}
+
+
 @app.get("/api/health")
 def health():
     return {
