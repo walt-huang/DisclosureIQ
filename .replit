@@ -47,3 +47,8 @@ externalPort = 8000
 deploymentTarget = "autoscale"
 run = ["bash", "-c", "cd regscreen-ai/backend && uvicorn main:app --host 0.0.0.0 --port $PORT & cd regscreen-ai/frontend && npm run preview -- --host 0.0.0.0 --port 5000"]
 build = ["bash", "-c", "cd regscreen-ai/frontend && npm install && npm run build"]
+
+[userenv]
+
+[userenv.shared]
+MOCK_MODE = "false"
