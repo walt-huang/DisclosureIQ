@@ -5,7 +5,7 @@ export default function Sidebar({ registry, activeDocType, onSelect }) {
         <div className="logo-mark">IQ</div>
         <div className="logo-text">
           <span className="logo-title">Disclosure-IQ</span>
-          <span className="logo-sub">Capital Markets AI</span>
+          <span className="logo-sub">Canadian Capital Markets</span>
         </div>
       </div>
 

@@ -109,7 +109,7 @@ export default function App() {
         <header className="top-bar">
           <div className="top-bar-left">
             <span className="wordmark">Disclosure-IQ</span>
-            <span className="wordmark-ai">AI</span>
+
           </div>
           <div className="top-bar-right">
             <span className="top-bar-tag">Canadian Capital Markets · {docType.regulatory_reference}</span>

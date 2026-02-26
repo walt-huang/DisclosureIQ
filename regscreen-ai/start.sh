@@ -1,6 +1,7 @@
 #!/bin/bash
 # Exit on error
 set -e
+pip install anthropic pdfplumber --quiet
 
 echo "Starting backend..."
 cd regscreen-ai/backend
