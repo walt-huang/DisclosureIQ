@@ -12,7 +12,7 @@ Preferred communication style: Simple, everyday language.
 
 ## System Architecture
 
-### Frontend (regscreen-ai/frontend/)
+### Frontend (disclosure_iq/frontend/)
 - **Framework**: React 18 with Vite 4 as the build tool
 - **Styling**: Custom CSS design system with a dark editorial/financial aesthetic (no CSS framework like Tailwind)
 - **Fonts**: DM Serif Display, DM Mono, Literata (loaded from Google Fonts)
@@ -22,7 +22,7 @@ Preferred communication style: Simple, everyday language.
 - **Document Registry**: A client-side config (`src/config/documentRegistry.js`) defines all supported document types, their required sections, and red flags. Adding a new document type means adding an entry here — no other code changes needed.
 - **Prompt Templates**: Client-side prompt builders (`src/config/prompts.js`) generate structured prompts for the AI, parameterized by document type. These produce requests for JSON-only responses.
 
-### Backend (regscreen-ai/backend/)
+### Backend (disclosure_iq/backend/)
 - **Framework**: Python FastAPI
 - **Port**: 8000 (inferred from Vite proxy config)
 - **PDF Parsing**: Uses `pdfplumber` with a graceful fallback if not installed
@@ -40,11 +40,11 @@ Preferred communication style: Simple, everyday language.
 | `AI_PROVIDER` | Which AI to use: `"openai"` or `"anthropic"` | `"anthropic"` |
 
 ### Root-Level Files
-There's a root `package.json` and `main.py` that appear to be workspace scaffolding from the Replit template. The actual application code lives inside `regscreen-ai/`. When setting up, focus on the `regscreen-ai/frontend/` and `regscreen-ai/backend/` directories.
+There's a root `package.json` and `main.py` that appear to be workspace scaffolding from the Replit template. The actual application code lives inside `disclosure_iq/`. When setting up, focus on the `disclosure_iq/frontend/` and `disclosure_iq/backend/` directories.
 
 ### Running the Application
-1. **Backend**: `cd regscreen-ai/backend && pip install fastapi uvicorn pdfplumber && uvicorn main:app --host 0.0.0.0 --port 8000`
-2. **Frontend**: `cd regscreen-ai/frontend && npm install && npm run dev`
+1. **Backend**: `cd disclosure_iq/backend && pip install fastapi uvicorn pdfplumber && uvicorn main:app --host 0.0.0.0 --port 8000`
+2. **Frontend**: `cd disclosure_iq/frontend && npm install && npm run dev`
 3. The frontend on port 5000 proxies API calls to the backend on port 8000.
 
 ### Design Patterns

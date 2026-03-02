@@ -28,7 +28,7 @@ Demo Mode: If no API key is set, the app loads realistic sample data automatical
 
 ## Project Structure
 
-regscreen/
+disclosure_iq/
 ├── server.js                    # Express server + all API routes
 ├── package.json
 ├── .replit                      # Replit run config

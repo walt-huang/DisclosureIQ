@@ -4,7 +4,7 @@ set -e
 pip install anthropic pdfplumber --quiet
 
 echo "Starting backend..."
-cd regscreen-ai/backend
+cd disclosure_iq/backend
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
 
 echo "Starting frontend..."
