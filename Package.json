@@ -1,9 +1,0 @@
-cd ~/workspace && cat > package.json << 'EOF'
-{
-  "name": "disclosure-iq",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "cd disclosure_iq/frontend && npm install && npm run build"
-  }
-}
-EOF
