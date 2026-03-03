@@ -31,7 +31,7 @@ app.add_middleware(
 )
 
 # ── Config ────────────────────────────────────────────────────────────────────
-MOCK_MODE = os.getenv("MOCK_MODE", "true").lower() == "true"
+MOCK_MODE = os.getenv("MOCK_MODE", "false").lower() == "true"
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 AI_PROVIDER = os.getenv("AI_PROVIDER", "anthropic")
