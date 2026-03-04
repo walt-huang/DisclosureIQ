@@ -13,6 +13,8 @@ from datetime import datetime
 
 from fastapi import FastAPI, File, Form, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 try:
     import pdfplumber
@@ -38,10 +40,7 @@ AI_PROVIDER = os.getenv("AI_PROVIDER", "anthropic")
 CHUNK_SIZE = 3000
 CHUNK_OVERLAP = 300
 
-# ── Root health check ─────────────────────────────────────────────────────────
-@app.get("/")
-def root():
-    return {"status": "ok", "app": "DisclosureIQ", "version": "2.0.0"}
+# ── API Routes ────────────────────────────────────────────────────────────────
 
 @app.get("/api/health")
 def health():
@@ -522,3 +521,22 @@ async def review_document(
         "summary": parse_json_response(summary_raw, {}),
         "mock": False,
     }
+
+# ── Static Files & Single Page App Routing ────────────────────────────────────
+
+# Mount the static files from the frontend build directory
+# We assume the frontend is built into disclosure_iq/frontend/dist
+frontend_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "dist")
+
+if os.path.exists(frontend_path):
+    app.mount("/assets", StaticFiles(directory=os.path.join(frontend_path, "assets")), name="assets")
+
+    @app.get("/{rest_of_path:path}")
+    async def serve_frontend(rest_of_path: str):
+        # If the path starts with api/, it should have been caught by API routes above.
+        # If we reached here, it's either a static file or a frontend route.
+        file_path = os.path.join(frontend_path, rest_of_path)
+        if os.path.isfile(file_path):
+            return FileResponse(file_path)
+        # Fallback to index.html for React routing
+        return FileResponse(os.path.join(frontend_path, "index.html"))
