@@ -44,7 +44,7 @@ externalPort = 8000
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["bash", "-c", "cd disclosure_iq/backend && uvicorn main:app --host 0.0.0.0 --port $PORT & cd disclosure_iq/frontend && npm run preview -- --host 0.0.0.0 --port 5000"]
+run = ["bash", "-c", "cd disclosure_iq/backend && uvicorn main:app --host 0.0.0.0 --port $PORT"]
 build = ["bash", "-c", "cd disclosure_iq/frontend && npm install && npm run build"]
 
 [userenv]
